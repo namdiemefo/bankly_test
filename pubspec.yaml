@@ -52,6 +52,10 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
+  assets:
+    - assets/images/capetown.jpeg
+    - assets/images/newyork.jpeg
+    - assets/images/switzerland.jpeg
 
 fonts:
   - family: ProximaNova

@@ -36,7 +36,7 @@ Stream<LoginState> _logUser(ButtonClicked event) async* {
     BaseResponse response = await repository.loginUser(loginUser);
     if (response.statuscode == 200) {
       yield ButtonSuccess();
-    } else if(response.statuscode == 400) {
+    } else if (response.statuscode == 400)  {
       yield ButtonFailure(response.message);
     }
 

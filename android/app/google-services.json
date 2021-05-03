@@ -1,41 +1,41 @@
 {
   "project_info": {
-    "project_number": "570075663523",
-    "project_id": "bankly-e34c4",
-    "storage_bucket": "bankly-e34c4.appspot.com"
+    "project_number": "516722266067",
+    "project_id": "bankly-b9a31",
+    "storage_bucket": "bankly-b9a31.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:570075663523:android:bc3393134da803ce75c316",
+        "mobilesdk_app_id": "1:516722266067:android:fc9f73c6e3e8756d0fa926",
         "android_client_info": {
-          "package_name": "com.example"
+          "package_name": "com.example.bankly_test"
         }
       },
       "oauth_client": [
         {
-          "client_id": "570075663523-8mcf0vf6leec3joe0iih20srb4m7cm20.apps.googleusercontent.com",
+          "client_id": "516722266067-c70ej6rsnccqf8cv3t840r2rostj50s5.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example",
+            "package_name": "com.example.bankly_test",
             "certificate_hash": "75966e7c4a50b0dbf39886f5eb1730a40427eb75"
           }
         },
         {
-          "client_id": "570075663523-kgqhu0ene94r699mpqp5heo28ls1hvuo.apps.googleusercontent.com",
+          "client_id": "516722266067-v4qf84fsi9dhaht5q78km63mb1jgdf9a.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBpOz3MiSsqhQlVFsm7T7bXmNuOVUIGWd0"
+          "current_key": "AIzaSyCylJnLN7w6sds2a577fW5p-1bRK2R9r_Y"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "570075663523-kgqhu0ene94r699mpqp5heo28ls1hvuo.apps.googleusercontent.com",
+              "client_id": "516722266067-v4qf84fsi9dhaht5q78km63mb1jgdf9a.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

@@ -31,9 +31,10 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
     RegisterUser registerUser = event.registerUser;
     yield ButtonLoading();
     BaseResponse response = await repository.registerUser(registerUser);
+    print('response is $response');
     if (response.statuscode == 200) {
       yield ButtonSuccess(response.message);
-    } else if (response.statuscode == 400) {
+    } else if (response.statuscode == 400)  {
       yield ButtonFailure(response.message);
     }
   }

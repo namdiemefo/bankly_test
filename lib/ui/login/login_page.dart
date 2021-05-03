@@ -1,9 +1,11 @@
 import 'package:bankly_test/api/models.dart';
 import 'package:bankly_test/api/repository.dart';
+import 'package:bankly_test/db/prefs.dart';
 import 'package:bankly_test/helpers/alert_dialog.dart';
 import 'package:bankly_test/helpers/load_dialog.dart';
 import 'package:bankly_test/helpers/service_locator.dart';
 import 'package:bankly_test/main.dart';
+import 'package:bankly_test/ui/pages/carousel.dart';
 import 'package:bankly_test/ui/register/register_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -274,7 +276,8 @@ class _MyLoginPageState extends State<MyLoginPage> {
                                       }
 
                                       if (state is ButtonSuccess) {
-                                          final route = MaterialPageRoute(builder: (context) => MyHomePage());
+                                        sharedPrefs.email = 'in';
+                                          final route = MaterialPageRoute(builder: (context) => CarouselPage());
                                           Navigator.pushReplacement(context, route);
                                       }
 

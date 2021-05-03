@@ -1,3 +1,5 @@
+import 'package:bankly_test/ui/login/login_page.dart';
+import 'package:bankly_test/ui/pages/carousel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -14,6 +16,7 @@ Future<void> main() async {
 }
 
 class MyApp extends StatelessWidget {
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -63,7 +66,7 @@ class MyApp extends StatelessWidget {
         ),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: sharedPrefs.email == null || sharedPrefs.email.isEmpty ? LoginPage() : CarouselPage(),
     );
   }
 }

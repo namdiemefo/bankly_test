@@ -12,27 +12,27 @@ abstract class IRepository {
 class Repository extends IRepository {
 
   final FirebaseAuth _auth = FirebaseAuth.instance;
+  CollectionReference collectionReference = Firestore.instance.collection('user');
+
   final DatabaseReference _database = FirebaseDatabase.instance.reference().child('Users');
 
   @override
-  Future loginUser(LoginUser loginUser) async {
-    _auth.signInWithEmailAndPassword(email: loginUser.email, password: loginUser.password)
+  Future loginUser(LoginUser loginUser) async =>
+      _auth.signInWithEmailAndPassword(email: loginUser.email, password: loginUser.password)
         .then((value)  {
-      print('id is ${value.user.uid}');
+          print('id is ${value.user.uid}');
           AuthResult user = value;
           return BaseResponse(statuscode: 200, data: user.user, message: 'Login Successful');
     })
-    .catchError((onError) {
-      BaseResponse(statuscode: 400, message: '${onError.message}');
-    });
-  }
+      .onError((error, stackTrace) => BaseResponse(statuscode: 400, message: '${error.message}') );
 
   @override
-  Future registerUser(RegisterUser registerUser) async {
-    _auth.createUserWithEmailAndPassword(email: registerUser.email, password: registerUser.password)
+  Future<BaseResponse> registerUser(RegisterUser registerUser) async =>
+
+      _auth.createUserWithEmailAndPassword(email: registerUser.email, password: registerUser.password)
         .then((value) {
-      print('id is ${value.user.uid}');
-          _database.child(value.user.uid).set({
+            print('id is ${value.user.uid}');
+            collectionReference.add({
             'first_name': '${registerUser.firstname}',
             'last_name': '${registerUser.lastname}',
             'email': '${registerUser.email}',
@@ -40,16 +40,18 @@ class Repository extends IRepository {
             'number': '${registerUser.phone}'
           }).then((result) {
             print('done');
-            return BaseResponse(statuscode: 200, message: 'Successful registration');
+
           })
             .catchError((onError) {
-              return BaseResponse(statuscode: 400, message: '${onError.message}');
+            print('error is ${onError.message}');
+             // return BaseResponse(statuscode: 400, message: '${onError.message}');
           });
+            return BaseResponse(statuscode: 200, message: 'Successful registration');
       })
-      .catchError((onError) {
-        return BaseResponse(statuscode: 400, message: '${onError.message}');
-      });
+      .catchError((onError) =>
+       //print('my error is ${onError}')
+      BaseResponse(statuscode: 400, message: '${onError.message}')
 
-  }
+      );
   
 }
